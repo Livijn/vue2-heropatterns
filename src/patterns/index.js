@@ -1,1 +1,1 @@
-export { default as Jigsaw } from './Jigsaw/Pattern'
+export { default as Pattern } from './Pattern'
