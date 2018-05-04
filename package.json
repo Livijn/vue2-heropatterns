@@ -1,7 +1,7 @@
 {
   "name": "vue2-heropatterns",
-  "version": "1.0.2",
-  "description": "A Vue 2 directive to use HeroPatterns",
+  "version": "1.0.0",
+  "description": "A Vue 2 package to use HeroPatterns",
   "main": "src/index.js",
   "repository": "https://www.github.com/JustSteveKing/vue2-heropatterns",
   "author": "juststeveking <juststeveking@gmail.com>",
