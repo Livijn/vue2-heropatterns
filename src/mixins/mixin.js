@@ -26,7 +26,7 @@ export const mixin = {
 
     computed: {
         style () {
-            return `background-color: %23${this.color}; background-image: url("${this.imageUri}")`
+            return `background-color: %23${this.background}; background-image: url("${this.imageUri}")`
         },
 
         imageUri () {
