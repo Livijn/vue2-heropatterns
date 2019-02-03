@@ -33,6 +33,10 @@ export const mixin = {
             return this.foreground.replace('#', '');
         },
         
+        formattedPattern() {
+            return this.pattern.replace('-', '_');
+        },
+        
         style () {
             return `background-color: #${this.backgroundColor}; background-image: url("${this.imageUri}")`
         },
@@ -50,7 +54,7 @@ export const mixin = {
         },
 
         currentPattern () {
-            return patterns[this.pattern]
+            return patterns[this.formattedPattern]
         }
     }
 }
