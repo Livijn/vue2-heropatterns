@@ -6,6 +6,7 @@
 
 <script>
     import patterns from './../config/patterns'
+    import tinycolor from 'tinycolor2';
 
     export default {
         props: {
@@ -18,11 +19,6 @@
                 required: false,
                 type: String,
                 default: '000000',
-            },
-            opacity: {
-                required: false,
-                type: Number,
-                default: 0.05,
             },
             pattern: {
                 required: false,
@@ -37,6 +33,10 @@
 
             foregroundColor() {
                 return this.foreground.replace('#', '');
+            },
+
+            opacity() {
+                return 0.2 - tinycolor(this.backgroundColor).getLuminance() / 10;
             },
 
             selectedPattern() {
