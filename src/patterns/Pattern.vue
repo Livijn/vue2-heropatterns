@@ -7,6 +7,7 @@
 <script>
     import patterns from './../config/patterns'
     import tinycolor from 'tinycolor2';
+    import hexToRgba from 'hex-to-rgba';
 
     export default {
         props: {
@@ -24,25 +25,30 @@
                 required: false,
                 type: String,
                 default: null,
+            },
+            opacity: {
+                required: false,
+                type: Number,
+                default: null,
             }
         },
         computed: {
             backgroundColor() {
-                return '#' + this.background.replace('#', '');
+                return hexToRgba(this.background);
             },
 
             foregroundColor() {
-                return this.foreground.replace('#', '');
+                return hexToRgba(this.foreground);
             },
 
-            opacity() {
-                return 0.2 - tinycolor(this.backgroundColor).getLuminance() / 10;
+            fillOpacity() {
+                return _.round(this.opacity || 0.15 - tinycolor(this.backgroundColor).getLuminance() / 10, 2);
             },
 
             selectedPattern() {
                 return this.pattern && patterns[this.pattern]
                     .replace('FILLCOLOR', '%23' + this.foregroundColor)
-                    .replace('FILLOPACITY', this.opacity);
+                    .replace('FILLOPACITY', this.fillOpacity);
             },
 
             style() {
@@ -51,6 +57,6 @@
                     backgroundImage: this.selectedPattern,
                 };
             },
-        }
+        },
     }
 </script>
